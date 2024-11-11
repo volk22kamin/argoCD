@@ -18,4 +18,5 @@ argo-cd:
   rbac:
       policy.csv: |
         p, role:readonly, applications, get, *, allow
+        g, crunchops, role:readonly
         g, zeev, role:readonly
