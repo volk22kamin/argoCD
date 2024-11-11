@@ -11,3 +11,6 @@ argo-cd:
         nodePortHttp: 30082
     extraArgs:
       - --insecure
+  configs:
+    cm:
+      accounts.crunchops: login
