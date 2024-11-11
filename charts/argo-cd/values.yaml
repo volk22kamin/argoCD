@@ -19,5 +19,5 @@ argo-cd:
       policy.csv: |
         p, role:readonly, applications, get, *, allow
         g, crunchops, role:readonly
-        p, role:monitoring-application-list, applications, get, monitoring/*, allow
+        p, role:monitoring-application-list, applications, get, monitoring, allow
         g, zeev, role:monitoring-application-list
