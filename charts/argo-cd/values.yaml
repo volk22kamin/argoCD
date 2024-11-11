@@ -14,3 +14,7 @@ argo-cd:
   configs:
     cm:
       accounts.crunchops: login
+    rbac:
+      policy.csv: |
+        p, role:readonly, applications, get, *, allow
+        g, crunchops, role:readonly
