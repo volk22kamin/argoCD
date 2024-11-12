@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sgrafana-monitor
+  name: monitoring-grafana-monitor
 spec:
   destination:
     namespace: monitoring
