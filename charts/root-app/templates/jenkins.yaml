@@ -7,9 +7,13 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.jenkins.io
-    chart: jenkins
-    targetRevision: 5.7.12
+    repoURL: https://github.com/volk22kamin/argoCD.git
+    path: charts/jenkins 
+    targetRevision: tgz-charts
+    helm:
+      valueFiles:
+        - values.yaml
+        - override-vals.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins
