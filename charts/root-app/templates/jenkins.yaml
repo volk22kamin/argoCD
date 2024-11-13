@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/volk22kamin/argoCD.git
     path: charts/jenkins 
-    targetRevision: tgz-charts
+    targetRevision: tgz-chart
     helm:
       valueFiles:
         - values.yaml
