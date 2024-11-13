@@ -1,5 +1,5 @@
 controller:
-  adminPassword: ""
+  adminPassword: "123"
   InstallPlugins:
     - kubernetes:1.14.3
     - workflow-aggregator:2.5
