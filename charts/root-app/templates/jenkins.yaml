@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-    targetRevision: jenkins-5.7.12
+    targetRevision: 5.7.12
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins
