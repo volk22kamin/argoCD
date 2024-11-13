@@ -9,9 +9,6 @@ spec:
   source:
     repoURL: https://charts.jenkins.io
     chart: jenkins
-    helm:
-      valueFiles:
-        - values.yaml
     targetRevision: 5.7.12
   destination:
     server: https://kubernetes.default.svc
