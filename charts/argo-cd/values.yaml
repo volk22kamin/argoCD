@@ -27,10 +27,11 @@ argo-cd:
         p, role:readonly, applications, get, *, allow
         g, crunchops, role:readonly
         p, role:monitoring-application-list, applications, get, */monitoring-*, allow
+        p, role:todo, applications, get, */to-do-*, allow
         g, zeev, role:monitoring-application-list
         p, role:developer, applications, *, *, allow
         g, maor, role:developer
-        g, monitor-group, role:monitoring-application-list
+        g, monitor-group, role:todo
 
         g, user1, monitor-group
         g, user2, monitor-group
