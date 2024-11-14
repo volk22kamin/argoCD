@@ -1,6 +1,4 @@
 argo-cd:
-  exec:
-    enabled: true
   dex:
     enabled: false
   notifications:
@@ -15,6 +13,8 @@ argo-cd:
     - --insecure
   configs:
     cm:
+     exec:
+      enabled: true
       accounts.crunchops: login
       accounts.zeev: login
       accounts.maor: login
