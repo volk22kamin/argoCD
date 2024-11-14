@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/volk22kamin/jenkins-chart.git
-    path: /
+    path: jenkins
     targetRevision: main
     helm:
       valueFiles:
