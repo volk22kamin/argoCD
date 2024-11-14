@@ -16,6 +16,12 @@ argo-cd:
       accounts.crunchops: login
       accounts.zeev: login
       accounts.maor: login
+
+      accounts.user1: login
+      accounts.user2: login
+      accounts.user3: login
+      accounts.user4: login
+
     rbac:
       policy.csv: |-
         p, role:readonly, applications, get, *, allow
@@ -24,3 +30,11 @@ argo-cd:
         g, zeev, role:monitoring-application-list
         p, role:developer, applications, *, *, allow
         g, maor, role:developer
+        g, monitor-group, role:monitoring-application-list
+
+        g, user1, monitor-group
+        g, user2, monitor-group
+        g, user3, monitor-group
+        g, user4, monitor-group
+
+
