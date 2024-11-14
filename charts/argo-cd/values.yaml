@@ -7,17 +7,20 @@ argo-cd:
     enabled: false
   server:
     service:
-        type: NodePort
-        nodePortHttp: 30082
+      type: NodePort
+      nodePortHttp: 30082
     extraArgs:
-      - --insecure
+    - --insecure
   configs:
     cm:
       accounts.crunchops: login
-      accounts.zeev: login  
+      accounts.zeev: login
+      accounts.maor: login
     rbac:
-      policy.csv: |
+      policy.csv: |-
         p, role:readonly, applications, get, *, allow
         g, crunchops, role:readonly
         p, role:monitoring-application-list, applications, get, */monitoring-*, allow
         g, zeev, role:monitoring-application-list
+        p, role:developer, applications, *, *, allow
+        g, maor, role:developer
