@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/volk22kamin/argoCD.git
-    path: charts/jenkins/
-    targetRevision: tgz-chart
+    repoURL: https://github.com/volk22kamin/jenkins-chart.git
+    path: /
+    targetRevision: main
     helm:
       valueFiles:
         - values.yaml
