@@ -13,9 +13,7 @@ argo-cd:
     - --insecure
   configs:
     cm:
-      exec:
-        enabled: true
-      accounts.crunchops: login
+      exec.enabled: true
       accounts.zeev: login
       accounts.maor: login
 
