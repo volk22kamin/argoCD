@@ -27,7 +27,7 @@ argo-cd:
         p, role:readonly, applications, get, *, allow
         p, role:monitoring-application-list, applications, get, */monitoring-*, allow
         p, role:developer, applications, *, *, allow
-        p, role:todo, *, get, */to-do*, allow
+        p, role:todo, *, *, */to-do*, allow
         p, role:todo, *, exec, */to-do*, allow
         
         g, zeev, role:admin
