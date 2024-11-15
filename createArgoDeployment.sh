@@ -1,1 +1,1 @@
-helm upgrade --install argo-cd argo-cd/
+helm upgrade --install argo-cd charts/argo-cd/ 
