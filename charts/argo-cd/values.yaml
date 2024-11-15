@@ -13,8 +13,8 @@ argo-cd:
     - --insecure
   configs:
     cm:
-     exec:
-      enabled: true
+      exec:
+        enabled: true
       accounts.crunchops: login
       accounts.zeev: login
       accounts.maor: login
@@ -27,17 +27,17 @@ argo-cd:
     rbac:
       policy.csv: |-
         p, role:readonly, applications, get, *, allow
-        g, crunchops, role:readonly
         p, role:monitoring-application-list, applications, get, */monitoring-*, allow
-        p, role:todo, applications, get, */to-do*, allow
-        g, zeev, role:admin
         p, role:developer, applications, *, *, allow
-        g, maor, role:developer
-        g, monitor-group, role:todo
+        p, role:todo, applications, get, */to-do*, allow
+        
+        g, zeev, role:admin
 
-        g, user1, monitor-group
-        g, user2, monitor-group
-        g, user3, monitor-group
-        g, user4, monitor-group
+        g, todo-team, role:todo
+
+        g, user1, todo-team
+        g, user2, todo-team
+        g, user3, todo-team
+        g, user4, todo-team
 
 
