@@ -25,19 +25,6 @@ argo-cd:
     rbac:
       policy.csv: |-
         p, role:readonly, applications, get, *, allow
-        p, role:monitoring-application-list, applications, get, */monitoring-*, allow
-        p, role:developer, applications, *, *, allow
-        p, role:todo, *, *, */to-do*, allow
-        p, role:todo, *, exec, */to-do*, allow
-        p, role:admin, *, *, *, allow
-
-        g, zeev, role:admin
-
-        g, todo-team, role:todo
-
-        g, user1, todo-team
-        g, user2, todo-team
-        g, user3, todo-team
-        g, user4, todo-team
+        
 
 
