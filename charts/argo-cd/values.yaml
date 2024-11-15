@@ -29,7 +29,8 @@ argo-cd:
         p, role:developer, applications, *, *, allow
         p, role:todo, *, *, */to-do*, allow
         p, role:todo, *, exec, */to-do*, allow
-        
+        p, role:admin, *, *, *, allow
+
         g, zeev, role:admin
 
         g, todo-team, role:todo
