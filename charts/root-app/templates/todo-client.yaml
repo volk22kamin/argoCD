@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: to-do-client
+  name: default/to-do-client
   namespace: default  # Assuming Argo CD is in the default namespace
 spec:
   project: default  # Adjust this if you use a specific project
