@@ -42,7 +42,7 @@ argo-cd:
 
     params:
       server.additionalProjects: |
-        - name: new-project
+        - name: to-do
           description: "New project for zeev's applications"
           sourceRepos:
             - "*"
