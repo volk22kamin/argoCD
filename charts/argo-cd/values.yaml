@@ -40,3 +40,18 @@ argo-cd:
         g, user4, todo-team
 
 
+    params:
+      server.additionalProjects: |
+        - name: new-project
+          description: "New project for zeev's applications"
+          sourceRepos:
+            - "*"
+          destinations:
+            - namespace: "*"
+              server: https://kubernetes.default.svc
+          clusterResourceWhitelist:
+            - group: "*"
+              kind: "*"
+          namespaceResourceWhitelist:
+            - group: "*"
+              kind: "*"
