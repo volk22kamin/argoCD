@@ -14,7 +14,7 @@ argo-cd:
   configs:
     cm:
       exec.enabled: true
-      accounts.zeev: login
+      accounts.zeev: login,password
       accounts.maor: login
 
       accounts.user1: login
@@ -39,19 +39,18 @@ argo-cd:
         g, user3, todo-team
         g, user4, todo-team
 
-
-    params:
-      server.additionalProjects: |
-        - name: to-do
-          description: "New project for zeev's applications"
-          sourceRepos:
-            - "*"
-          destinations:
-            - namespace: "*"
-              server: https://kubernetes.default.svc
-          clusterResourceWhitelist:
-            - group: "*"
-              kind: "*"
-          namespaceResourceWhitelist:
-            - group: "*"
-              kind: "*"
+server:
+  additionalProjects:
+    - name: to-do
+      description: "New project for zeev's applications"
+      sourceRepos:
+        - "*"
+      destinations:
+        - namespace: "*"
+          server: https://kubernetes.default.svc
+      clusterResourceWhitelist:
+        - group: "*"
+          kind: "*"
+      namespaceResourceWhitelist:
+        - group: "*"
+          kind: "*"
