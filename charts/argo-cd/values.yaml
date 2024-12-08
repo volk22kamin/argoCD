@@ -14,7 +14,7 @@ argo-cd:
   configs:
     cm:
       exec.enabled: true
-      accounts.zeev: login,password
+      accounts.zeev: login,password,apiKey
       accounts.maor: login
 
       accounts.user1: login
