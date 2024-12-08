@@ -1,1 +1,0 @@
-helm install argo-cd argo-cd/
