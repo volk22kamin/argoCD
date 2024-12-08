@@ -17,6 +17,7 @@ spec:
         server:
           service:
             type: NodePort
+            nodePort: 31865
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
