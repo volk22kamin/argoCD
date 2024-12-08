@@ -1,1 +1,2 @@
+# given the namespace is 'monitoring' and the pod name prefix is 'monitoring-grafana-monitor'
 kubectl cp monitoring/$(kubectl get pods -n monitoring | grep monitoring-grafana-monitor | awk '{print $1}'):/var/lib/grafana/grafana.db ./grafana.db
