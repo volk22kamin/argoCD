@@ -13,7 +13,7 @@ spec:
       parameters:
       - name: service.type
         value: NodePort
-      - name: service.type.nodePort
+      - name: service.nodePort
         value: "30744"
       - name: persistence.enabled
         value: "true"
