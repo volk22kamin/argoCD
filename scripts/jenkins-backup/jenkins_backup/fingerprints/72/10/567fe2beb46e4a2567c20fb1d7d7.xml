@@ -1,0 +1,19 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2024-12-08 08:20:24.148 UTC</timestamp>
+  <md5sum>7210567fe2beb46e4a2567c20fb1d7d7</md5sum>
+  <fileName>Credential id=github name=volk22kamin/****** (github-volk)</fileName>
+  <usages>
+    <entry>
+      <string>test</string>
+      <ranges>1</ranges>
+    </entry>
+  </usages>
+  <facets>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1389.vd7a_b_f5fa_50a_2">
+      <timestamp>1733646024132</timestamp>
+      <itemFullName>test</itemFullName>
+      <timestamp0>1733646024132</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+  </facets>
+</fingerprint>

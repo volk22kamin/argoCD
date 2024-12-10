@@ -1,0 +1,1 @@
+kubectl cp jenkins_backup/. jenkins/jenkins-0:/var/jenkins_home
