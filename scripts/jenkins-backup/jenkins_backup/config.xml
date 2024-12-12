@@ -77,7 +77,7 @@
           <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Never"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-          <id>370a7db1-e244-4d45-9eb3-8081ddc7d589</id>
+          <id>3b6f3d6e-31ad-4ba4-adf4-85e0fd779d4e</id>
           <name>argocd</name>
           <privileged>false</privileged>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
@@ -122,7 +122,7 @@ spec:
           <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Merge"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-          <id>df13798e-3862-40fd-8821-7483f446dde2</id>
+          <id>822a933f-400f-4107-b54d-17152568a107</id>
           <name>kaniko-git</name>
           <privileged>false</privileged>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
@@ -184,7 +184,7 @@ spec:
           <yamlMergeStrategy class="org.csanchez.jenkins.plugins.kubernetes.pod.yaml.Merge"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
-          <id>b5e6d8ee-2467-4477-bed8-6a921dde64db</id>
+          <id>a210b7f9-b2b1-4aa6-92ac-ab9a78ae7dc5</id>
           <name>kaniko-git-mongo-node</name>
           <privileged>false</privileged>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>

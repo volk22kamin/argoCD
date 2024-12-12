@@ -89,3 +89,14 @@ SKIPPED plugins/cloudbees-folder.jpi : Installed version (6.963.v6edc0fc71472) h
 SKIPPED plugins/kubernetes.jpi : Installed version (4302.va_756e4b_67715) has been manually upgraded from initial version (4295.v7fa_01b_309c95)
 SKIPPED plugins/workflow-job.jpi : Installed version (1472.ve4d5eca_143c4) has been manually upgraded from initial version (1468.vcf4f5ee92395)
 --- Copied files finished at Tue Dec 10 06:05:25 UTC 2024
+--- Copying files at Tue Dec 10 15:56:00 UTC 2024
+SKIPPED plugins/configuration-as-code.jpi : Installed version (1903.v004d55388f30) has been manually upgraded from initial version (1887.v9e47623cb_043)
+SKIPPED plugins/workflow-support.jpi : Installed version (936.v9fa_77211ca_e1) has been manually upgraded from initial version (932.vb_555de1b_a_b_94)
+SKIPPED plugins/workflow-durable-task-step.jpi : Installed version (1398.vf6c9e89e5988) has been manually upgraded from initial version (1378.v6a_3e903058a_3)
+SKIPPED plugins/workflow-cps.jpi : Installed version (4000.v5198556e9cea_) has been manually upgraded from initial version (3993.v3e20a_37282f8)
+SKIPPED plugins/durable-task.jpi : Installed version (581.v299a_5609d767) has been manually upgraded from initial version (577.v2a_8a_4b_7c0247)
+SKIPPED plugins/ssh-credentials.jpi : Installed version (349.vb_8b_6b_9709f5b_) has been manually upgraded from initial version (343.v884f71d78167)
+SKIPPED plugins/cloudbees-folder.jpi : Installed version (6.963.v6edc0fc71472) has been manually upgraded from initial version (6.955.v81e2a_35c08d3)
+SKIPPED plugins/kubernetes.jpi : Installed version (4302.va_756e4b_67715) has been manually upgraded from initial version (4295.v7fa_01b_309c95)
+SKIPPED plugins/workflow-job.jpi : Installed version (1472.ve4d5eca_143c4) has been manually upgraded from initial version (1468.vcf4f5ee92395)
+--- Copied files finished at Tue Dec 10 15:56:02 UTC 2024

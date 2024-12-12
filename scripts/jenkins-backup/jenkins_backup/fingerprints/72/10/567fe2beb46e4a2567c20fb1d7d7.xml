@@ -5,6 +5,14 @@
   <fileName>Credential id=github name=volk22kamin/****** (github-volk)</fileName>
   <usages>
     <entry>
+      <string>BUILD-to-do-server</string>
+      <ranges>2-3</ranges>
+    </entry>
+    <entry>
+      <string>BUILD-to-do-client</string>
+      <ranges>1-2</ranges>
+    </entry>
+    <entry>
       <string>test</string>
       <ranges>1</ranges>
     </entry>
@@ -14,6 +22,16 @@
       <timestamp>1733646024132</timestamp>
       <itemFullName>test</itemFullName>
       <timestamp0>1733646024132</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1389.vd7a_b_f5fa_50a_2">
+      <timestamp>1733997143521</timestamp>
+      <itemFullName>BUILD-to-do-client</itemFullName>
+      <timestamp0>1733997143521</timestamp0>
+    </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
+    <com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet plugin="credentials@1389.vd7a_b_f5fa_50a_2">
+      <timestamp>1733997600077</timestamp>
+      <itemFullName>BUILD-to-do-server</itemFullName>
+      <timestamp0>1733997418049</timestamp0>
     </com.cloudbees.plugins.credentials.fingerprints.ItemCredentialsFingerprintFacet>
   </facets>
 </fingerprint>

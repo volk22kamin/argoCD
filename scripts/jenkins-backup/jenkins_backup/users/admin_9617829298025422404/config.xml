@@ -49,7 +49,7 @@
     </jenkins.security.LastGrantedAuthoritiesProperty>
     <io.jenkins.plugins.thememanager.ThemeUserProperty plugin="theme-manager@262.vc57ee4a_eda_5d"/>
     <hudson.security.HudsonPrivateSecurityRealm_-Details>
-      <passwordHash>#jbcrypt:$2a$10$lYMEC1ruKBHwcix3P5h0xe/GDRhrsNZjPRZV..LMjBFIrGIOoL3O.</passwordHash>
+      <passwordHash>#jbcrypt:$2a$10$o9PcihAPIcgFHw8pNWHOeutSnaeN3w.RUwiyc96Anf/B/GzD7El.a</passwordHash>
     </hudson.security.HudsonPrivateSecurityRealm_-Details>
   </properties>
 </user>
