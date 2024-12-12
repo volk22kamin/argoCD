@@ -14,7 +14,7 @@ spec:
         - mongodb-values.yaml  # Specifies the values file for the client
   destination:
     server: https://kubernetes.default.svc
-    namespace: default  # The deployment namespace
+    namespace: prod  # The deployment namespace
   syncPolicy:
     automated:
       prune: true
