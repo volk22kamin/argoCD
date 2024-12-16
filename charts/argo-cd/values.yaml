@@ -8,7 +8,7 @@ argo-cd:
   server:
     service:
       type: NodePort
-      nodePortHttp: 30082
+      nodePortHttp: 30083
     extraArgs:
     - --insecure
   configs:
