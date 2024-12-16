@@ -1,1 +1,0 @@
-java -jar jenkins-cli.jar -s http://161.35.216.161:32000 -auth admin:123 list-plugins > plugins.txt

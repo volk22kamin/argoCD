@@ -7,50 +7,7 @@ argo-cd:
     enabled: false
   server:
     service:
-      type: NodePort
+      type: LoadBalancer
       nodePortHttp: 30083
     extraArgs:
     - --insecure
-  configs:
-    cm:
-      exec.enabled: true
-      accounts.zeev: login,apiKey
-      accounts.maor: login
-
-      accounts.user1: login
-      accounts.user2: login
-      accounts.user3: login
-      accounts.user4: login
-
-    rbac:
-      policy.csv: |-
-        p, role:readonly, applications, get, *, allow
-        p, role:monitoring-application-list, applications, get, */monitoring-*, allow
-        p, role:developer, applications, *, *, allow
-        p, role:todo, *, *, */monitoring/*, allow
-        p, role:admin, *, *, *, allow
-
-        g, zeev, role:admin
-
-        g, todo-team, role:todo
-
-        g, user1, todo-team
-        g, user2, todo-team
-        g, user3, todo-team
-        g, user4, todo-team
-
-server:
-  additionalProjects:
-    - name: to-do
-      description: "New project for zeev's applications"
-      sourceRepos:
-        - "*"
-      destinations:
-        - namespace: "*"
-          server: https://kubernetes.default.svc
-      clusterResourceWhitelist:
-        - group: "*"
-          kind: "*"
-      namespaceResourceWhitelist:
-        - group: "*"
-          kind: "*"

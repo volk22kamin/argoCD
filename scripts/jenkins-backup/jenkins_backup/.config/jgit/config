@@ -1,3 +1,0 @@
-[filesystem "Eclipse Adoptium|17.0.13|/dev/disk/by-id/scsi-0DO_Volume_pvc-bf9ad6e8-8664-4caf-ade4-7b233a51556c"]
-	timestampResolution = 3758 nanoseconds
-	minRacyThreshold = 4770 microseconds
