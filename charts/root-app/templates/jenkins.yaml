@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/volk22kamin/jenkins-chart.git
     path: jenkins-chart
-    targetRevision: HEAD
+    targetRevision: main
     helm:
       valueFiles:
         - values.yaml
