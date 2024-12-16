@@ -7,7 +7,7 @@ argo-cd:
     enabled: false
   server:
     service:
-      type: LoadBalancer
+      type: NodePort
       nodePortHttp: 30083
     extraArgs:
     - --insecure
