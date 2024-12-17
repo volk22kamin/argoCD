@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: monitoring-grafana-monitor
 spec:
   destination:
     namespace: monitoring
@@ -28,7 +28,7 @@ spec:
       - name: datasources.datasources\.yaml.datasources[0].access
         value: "proxy"
       - name: datasources.datasources\.yaml.datasources[0].url
-        value: "http://64.227.124.243:31865"
+        value: "http://161.35.216.161:31865"
       - name: datasources.datasources\.yaml.datasources[0].isDefault
         value: "true"
       - name: datasources.datasources\.yaml.datasources[0].editable

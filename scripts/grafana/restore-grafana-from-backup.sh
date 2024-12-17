@@ -1,1 +1,1 @@
-kubectl cp ./grafana.db monitoring/$(kubectl get pods -n monitoring | grep grafana | awk '{print $1}'):/var/lib/grafana/grafana.db && kubectl delete pod -n monitoring $(kubectl get pods -n monitoring | grep grafana | awk '{print $1}')
+kubectl cp ./grafana.db monitoring/$(kubectl get pods -n monitoring | grep monitoring-grafana-monitor | awk '{print $1}'):/var/lib/grafana/grafana.db && kubectl delete pod -n monitoring $(kubectl get pods -n monitoring | grep monitoring-grafana-monitor | awk '{print $1}')
