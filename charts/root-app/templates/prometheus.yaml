@@ -18,6 +18,10 @@ spec:
           service:
             type: NodePort
             nodePort: 31865
+          tolerations:
+            - key: node-role.kubernetes.io/control-plane
+              operator: Exists
+              effect: NoSchedule
           affinity:
             nodeAffinity:
               requiredDuringSchedulingIgnoredDuringExecution:
