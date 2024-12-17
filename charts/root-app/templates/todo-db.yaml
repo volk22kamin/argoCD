@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-to-do-db
+  namespace: default  # Assuming Argo CD is in the default namespace
+spec:
+  project: default  # Adjust this if you use a specific project
+  source:
+    repoURL: https://github.com/volk22kamin/basicToDoApp.git
+    path: basic-to-do-app
+    targetRevision: prod
+    helm:
+      valueFiles:
+        - mongodb-values.yaml  # Specifies the values file for the client
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod  # The deployment namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+
