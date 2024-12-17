@@ -1,0 +1,45 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1468.vcf4f5ee92395">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2218.v56d0cda_37c72"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2218.v56d0cda_37c72">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@3993.v3e20a_37282f8">
+    <script>def argocli(String command) {
+    withCredentials([string(credentialsId: &apos;argo-cd-zeev-token&apos;, variable: &apos;token&apos;)]) {
+        sh &quot;argocd $command --server 161.35.216.161:30082 --auth-token $token --plaintext&quot;
+    }
+}
+
+pipeline {
+    agent {
+        kubernetes {
+            label &apos;argocd&apos;
+            defaultContainer &apos;argocd&apos;
+        }
+    }
+    
+    stages {
+        stage(&quot;a&quot;) {
+            steps {
+                script {
+                    argocli &quot;app list&quot;
+                }
+            }
+        }
+    }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

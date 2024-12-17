@@ -1,0 +1,186 @@
+jenkins:
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "${chart-admin-username}"
+        name: "Jenkins Admin"
+        password: "${chart-admin-password}"
+  disableRememberMe: false
+  mode: NORMAL
+  numExecutors: 0
+  labelString: ""
+  projectNamingStrategy: "standard"
+  markupFormatter:
+    plainText
+  clouds:
+  - kubernetes:
+      containerCapStr: "10"
+      defaultsProviderTemplate: ""
+      connectTimeout: "5"
+      readTimeout: "15"
+      jenkinsUrl: "http://jenkins.jenkins.svc.cluster.local:8080"
+      jenkinsTunnel: "jenkins-agent.jenkins.svc.cluster.local:50000"
+      skipTlsVerify: false
+      usageRestricted: false
+      maxRequestsPerHostStr: "32"
+      retentionTimeout: "5"
+      waitForPodSec: "600"
+      name: "kubernetes"
+      namespace: "jenkins"
+      restrictedPssSecurityContext: false
+      serverUrl: "https://kubernetes.default"
+      credentialsId: ""
+      podLabels:
+      - key: "jenkins/jenkins-jenkins-agent"
+        value: "true"
+      templates:
+        - name: "default"
+          namespace: "jenkins"
+          id: aa53ac560188ea6b534d350627e9ba55b75c9479840370f436f336196eef7c08
+          containers:
+          - name: "jnlp"
+            alwaysPullImage: false
+            args: "^${computer.jnlpmac} ^${computer.name}"
+            envVars:
+              - envVar:
+                  key: "JENKINS_URL"
+                  value: "http://jenkins.jenkins.svc.cluster.local:8080/"
+            image: "jenkins/inbound-agent:3273.v4cfe589b_fd83-1"
+            privileged: "false"
+            resourceLimitCpu: 512m
+            resourceLimitMemory: 512Mi
+            resourceRequestCpu: 512m
+            resourceRequestMemory: 512Mi
+            ttyEnabled: false
+            workingDir: /home/jenkins/agent
+          idleMinutes: 0
+          instanceCap: 2147483647
+          label: "jenkins-jenkins-agent "
+          nodeUsageMode: "NORMAL"
+          podRetention: Never
+          showRawYaml: true
+          serviceAccount: "default"
+          slaveConnectTimeoutStr: "100"
+          volumes:
+            - secretVolume:
+                mountPath: "/kaniko/.docker"
+                secretName: "dockerhub-creds"
+          yamlMergeStrategy: override
+          inheritYamlMergeStrategy: false
+        - name: argocd
+          label: argocd
+          serviceAccount: jenkins
+          containers:
+            - name: argocd
+              image: waynewu411/docker-cli:1.1
+              command: /bin/cat
+              ttyEnabled: true
+          yamlMergeStrategy: merge
+          yaml: |-
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+              - name: argocd
+                volumeMounts:
+                - name: secret-volume
+                  mountPath: "/etc/secret"
+                  readOnly: true
+              volumes:
+              - name: secret-volume
+                secret:
+                  secretName: jenkins-secret
+        
+        - name: kaniko-git
+          label: kaniko-git
+          serviceAccount: jenkins
+          containers:
+            - name: git
+              image: alpine/git:latest
+              command: /bin/cat
+              ttyEnabled: true
+            - name: kaniko
+              image: gcr.io/kaniko-project/executor:debug
+              command: /busybox/cat
+              ttyEnabled: true
+          yamlMergeStrategy: merge
+          yaml: |-
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+              - name: kaniko
+                volumeMounts:
+                - name: workspace-volume
+                  mountPath: /workspace
+                - name: docker-config
+                  mountPath: /kaniko/.docker
+              volumes:
+              - name: workspace-volume
+                emptyDir: {}
+              - name: docker-config
+                secret:
+                  secretName: dockerhub-creds
+                  items:
+                    - key: .dockerconfigjson
+                      path: config.json
+        
+        - name: kaniko-git-mongo-node
+          label: kaniko-git-mongo-node
+          serviceAccount: jenkins
+          containers:
+            - name: mongodb
+              image: mongo:latest
+              ports:
+                - containerPort: 27017
+            - name: git
+              image: alpine/git:latest
+              command: /bin/cat
+              ttyEnabled: true
+            - name: kaniko
+              image: gcr.io/kaniko-project/executor:debug
+              command: /busybox/cat
+              ttyEnabled: true
+          yamlMergeStrategy: merge
+          yaml: |-
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+              - name: node
+                image: node:20
+                command: ["/bin/sh", "-c"]
+                args: ["cat"]
+                tty: true
+              - name: kaniko
+                volumeMounts:
+                - name: workspace-volume
+                  mountPath: /workspace
+                - name: docker-config
+                  mountPath: /kaniko/.docker
+              volumes:
+              - name: workspace-volume
+                emptyDir: {}
+              - name: docker-config
+                secret:
+                  secretName: dockerhub-creds
+                  items:
+                    - key: .dockerconfigjson
+                      path: config.json
+        
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+unclassified:
+  location:
+    url: http://jenkins.jenkins.svc.cluster.local:8080
