@@ -1,24 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jenkins
+  name: argo-cd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/volk22kamin/jenkins-chart.git
-    path: jenkins-chart
-    targetRevision: HEAD
-    helm:
-      valueFiles:
-        - values.yaml
-        - override-vals.yaml
+    repoURL: https://github.com/volk22kamin/argoCD.git
+    path: charts/argo-cd
+    targetRevision: whole-new
   destination:
     server: https://kubernetes.default.svc
-    namespace: jenkins
+    namespace: default
   syncPolicy:
     automated:
-      prune: true
       selfHeal: true
 

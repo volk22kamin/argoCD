@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prod-to-do-server
+  name: prod-to-do-db
   namespace: default  # Assuming Argo CD is in the default namespace
 spec:
   project: default  # Adjust this if you use a specific project
@@ -11,7 +11,7 @@ spec:
     targetRevision: prod
     helm:
       valueFiles:
-        - server-values.yaml  # Specifies the values file for the client
+        - mongodb-values.yaml  # Specifies the values file for the client
   destination:
     server: https://kubernetes.default.svc
     namespace: prod  # The deployment namespace
@@ -21,3 +21,4 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
+
