@@ -11,3 +11,6 @@ argo-cd:
       nodePortHttp: 30083
     extraArgs:
     - --insecure
+  configs:
+    cm:
+      exec.enabled: true
