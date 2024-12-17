@@ -28,21 +28,21 @@ spec:
       - name: datasources.datasources\.yaml.datasources[0].access
         value: "proxy"
       - name: datasources.datasources\.yaml.datasources[0].url
-        value: "http://161.35.216.161:31865"
+        value: "http://64.227.124.243:31865"
       - name: datasources.datasources\.yaml.datasources[0].isDefault
         value: "true"
       - name: datasources.datasources\.yaml.datasources[0].editable
         value: "true"
-      - name: affinity
-        value: |
-          podAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - labelSelector:
-                  matchExpressions:
-                    - key: app.kubernetes.io/name
-                      operator: In
-                      values:
-                        - prometheus
+      # - name: affinity
+      #   value: |
+      #     podAffinity:
+      #       requiredDuringSchedulingIgnoredDuringExecution:
+      #         - labelSelector:
+      #             matchExpressions:
+      #               - key: app.kubernetes.io/name
+      #                 operator: In
+      #                 values:
+      #                   - prometheus
     repoURL: https://grafana.github.io/helm-charts
     targetRevision: 6.51.5
   syncPolicy:
