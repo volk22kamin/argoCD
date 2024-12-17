@@ -18,6 +18,20 @@ spec:
           service:
             type: NodePort
             nodePort: 31865
+          tolerations:
+            - key: node-role.kubernetes.io/control-plane
+              operator: Exists
+              effect: NoSchedule
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                  - matchExpressions:
+                      - key: role
+                        operator: In
+                        values:
+                          - master
+
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

@@ -9,10 +9,11 @@ spec:
   source:
     repoURL: https://github.com/volk22kamin/argoCD.git
     path: charts/argo-cd
-    targetRevision: main
+    targetRevision: whole-new
   destination:
     server: https://kubernetes.default.svc
     namespace: default
   syncPolicy:
     automated:
       selfHeal: true
+
