@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/volk22kamin/argoCD.git
     path: charts/root-app/
-    targetRevision: whole-new
+    targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: default
