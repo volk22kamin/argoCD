@@ -4,7 +4,7 @@
 CLI_JAR="jenkins-cli.jar"
 
 # Jenkins URL
-JENKINS_URL="http://worker:32000/"
+JENKINS_URL="http://master:32000/"
 
 # Jenkins admin credentials (update these)
 USER="admin"
