@@ -14,7 +14,7 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-        - override-vals.yaml
+        # - override-vals.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: jenkins
