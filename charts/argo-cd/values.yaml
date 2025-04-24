@@ -14,7 +14,7 @@ argo-cd:
   configs:
     cm:
       exec.enabled: true
-      accounts.zeev: login,apiKey
-    rbac:
-      policy.csv: |-
-        g, zeev, role:admin
+    #   accounts.zeev: login,apiKey
+    # rbac:
+    #   policy.csv: |-
+    #     g, zeev, role:admin
