@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prod-to-do-server
-  namespace: default  # Assuming Argo CD is in the default namespace
+  namespace: argocd  # Assuming Argo CD is in the default namespace
 spec:
   project: default  # Adjust this if you use a specific project
   source:

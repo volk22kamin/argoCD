@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: basic-to-do-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - name: server
+                  valueFile: server-values.yaml
+                - name: db
+                  valueFile: mongodb-values.yaml
+                - name: client
+                  valueFile: client-values.yaml
+          - list:
+              elements:
+                - env: dev
+                - env: prod
+  template:
+    metadata:
+      name: '{{env}}-to-do-{{name}}'
+      labels:
+        environment: '{{env}}'
+        service: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/volk22kamin/basicToDoApp.git
+        path: basic-to-do-app
+        targetRevision: '{{env}}'  # 🟡 This uses 'dev' or 'prod' branch dynamically
+        helm:
+          valueFiles:
+            - '{{valueFile}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{env}}'  # Make sure values file reflects this too
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+
